@@ -11,7 +11,7 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+{{--    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">--}}
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -19,6 +19,11 @@
         #logo {
             height: 30px;
             border-right: 1px solid #cccc;
+        }
+        .resize-image {
+            height: 300px;
+            width: 100px;
+            object-fit: cover;
         }
     </style>
 </head>
