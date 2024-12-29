@@ -22,14 +22,14 @@
                 </div>
 
                 <div class="pt-4 fw-bold">
-                    freeCodeCamp.org
+                    {{ $user->profile->title }}
                 </div>
                 <div>
-                    We're a global community of millions of people learning to code together.
-                    LearnToCodeRPG: https://www.freecodecamp.org/news/learn-to-code-rpg/
+                    {{ $user->profile->description }}
+
                 </div>
                 <div>
-                    <button type="button" class="btn btn-sm btn-secondary  badge text-bg-secondar ">@ freecodecamp</button>
+                    <button type="button" class="btn btn-sm btn-secondary  badge text-bg-secondary ">@ freecodecamp</button>
 
                 </div>
             </div>

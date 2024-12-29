@@ -30,6 +30,7 @@ model
 php artisan make:model Profile -m
 
 test username:
+Caitlin Chapman
 username:
 Himsord
 CaitlinChapman@dayrep.com
