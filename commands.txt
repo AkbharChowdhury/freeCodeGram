@@ -22,7 +22,8 @@ migration
 php artisan migrate
 php artisan migrate:fresh
 
-
+controllers
+php artisan make:controller ProfilesController
 
 test username:
 username:
