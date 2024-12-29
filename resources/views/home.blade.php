@@ -17,7 +17,20 @@
                     <p class="m-2"><strong>686</strong> posts</p>
                     <p class="m-2"><strong>170k</strong> followers</p>
                     <p class="m-2"><strong>424</strong> following</p>
+
                     {{--                                                            <p><strong>686</strong> posts | <strong>170k</strong> followers | <strong>423</strong> following</p>--}}
+                </div>
+
+                <div class="pt-4 fw-bold">
+                    freeCodeCamp.org
+                </div>
+                <div>
+                    We're a global community of millions of people learning to code together.
+                    LearnToCodeRPG: https://www.freecodecamp.org/news/learn-to-code-rpg/
+                </div>
+                <div>
+                    <button type="button" class="btn btn-sm btn-secondary  badge text-bg-secondar ">@ freecodecamp</button>
+
                 </div>
             </div>
 
