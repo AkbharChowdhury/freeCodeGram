@@ -20,8 +20,12 @@ escape
 esc:wq
 migration
 php artisan migrate
+php artisan migrate:fresh
+
 
 
 test username:
-MiaHall@dayrep.com
-joo0WioS
+username:
+Himsord
+CaitlinChapman@dayrep.com
+oPho1thee
