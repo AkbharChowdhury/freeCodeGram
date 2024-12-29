@@ -25,8 +25,26 @@ php artisan migrate:fresh
 controllers
 php artisan make:controller ProfilesController
 
+
+model
+php artisan make:model Profile -m
+
 test username:
 username:
 Himsord
 CaitlinChapman@dayrep.com
 oPho1thee
+
+tinker
+php artisan tinker
+tinker create user profile
+ use App\Models\Profile;
+        $profile = new Profile();
+        $profile->title = 'Versions of the Lorem ipsum text have been used in typesetting at least since the 1960s, when ';
+        $profile->description = 'Lorem ipsum is typically a corrupted version of De finibus bonorum et malorum, a 1st-century BC text by the Roman statesman and philosopher Cicero, with words altered, added, and removed to make it nonsensical and improper Latin. The first two words themselves are a truncation of dolorem ipsum ("pain itself").';
+        $profile->user_id = 1;
+        $profile->save();
+
+          $profile->user
+ $user =  App\Models\User::find(1);
+   $user->profile
