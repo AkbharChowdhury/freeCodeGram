@@ -1,3 +1,5 @@
+Create new project
+composer create-project laravel/laravel freeCodeGram
 runserver
 php artisan serve
 
@@ -12,3 +14,14 @@ npm run build
 run this if having issues with vite
 npm run dev
 
+sqlite
+vim database/database.sqlite
+escape
+esc:wq
+migration
+php artisan migrate
+
+
+test username:
+MiaHall@dayrep.com
+joo0WioS
