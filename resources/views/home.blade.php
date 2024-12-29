@@ -29,8 +29,9 @@
 
                 </div>
                 <div>
-                    <button type="button" class="btn btn-sm btn-secondary  badge text-bg-secondary ">@ freecodecamp</button>
-
+                    @if($user->profile->url)
+                        <button type="button" class="btn btn-sm btn-secondary  badge text-bg-secondary ">@ freecodecamp</button>
+                    @endif
                 </div>
             </div>
 
