@@ -7,3 +7,8 @@ php artisan ui vue --auth
 
 npm
 npm install && npm run dev
+npm run build
+
+run this if having issues with vite
+npm run dev
+
