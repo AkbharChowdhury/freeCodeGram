@@ -11,7 +11,7 @@
 
 
             <div class="col-9 pt-5">
-                <h1>freecodecamp</h1>
+                <h1>{{ $user->username }}</h1>
 
                 <div class="d-flex">
                     <p class="m-2"><strong>686</strong> posts</p>
