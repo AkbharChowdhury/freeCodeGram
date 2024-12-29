@@ -1,0 +1,9 @@
+runserver
+php artisan serve
+
+auth and ui
+composer require laravel/ui --dev
+php artisan ui vue --auth
+
+npm
+npm install && npm run dev
