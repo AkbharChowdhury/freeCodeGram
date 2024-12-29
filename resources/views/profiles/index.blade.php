@@ -11,7 +11,10 @@
 
 
             <div class="col-9 pt-5">
-                <h1>{{ $user->username }}</h1>
+                <div class="d-flex justify-content-between align-items-baseline">
+                    <h1>{{ $user->username }}</h1>
+                    <a href="{{ route('posts.create') }}" role="button" class="btn btn-outline-success text-capitalize">add new post</a>
+                </div>
 
                 <div class="d-flex">
                     <p class="m-2"><strong>686</strong> posts</p>
@@ -30,7 +33,9 @@
                 </div>
                 <div>
                     @if($user->profile->url)
-                        <button type="button" class="btn btn-sm btn-secondary  badge text-bg-secondary ">@ freecodecamp</button>
+                        <button type="button" class="btn btn-sm btn-secondary  badge text-bg-secondary ">@
+                            freecodecamp
+                        </button>
                     @endif
                 </div>
             </div>
@@ -39,15 +44,21 @@
         </div>
         <div class="row pt-5">
             <div class="col-4">
-                <img class="w-100 img-fluid resize-image" src="https://plus.unsplash.com/premium_photo-1675629519404-187e26d24194?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyfHx8ZW58MHx8fHx8" alt="k">
+                <img class="w-100 img-fluid resize-image"
+                     src="https://plus.unsplash.com/premium_photo-1675629519404-187e26d24194?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyfHx8ZW58MHx8fHx8"
+                     alt="k">
             </div>
 
             <div class="col-4">
-                <img class="w-100 img-fluid resize-image" src="https://images.unsplash.com/photo-1730562885841-0163ae9eeca9?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzfHx8ZW58MHx8fHx8" alt="k">
+                <img class="w-100 img-fluid resize-image"
+                     src="https://images.unsplash.com/photo-1730562885841-0163ae9eeca9?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzfHx8ZW58MHx8fHx8"
+                     alt="k">
             </div>
 
             <div class="col-4">
-                <img  class="w-100 img-fluid resize-image" src="https://images.unsplash.com/photo-1731330269319-0f053cd5d74b?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw1fHx8ZW58MHx8fHx8" alt="k">
+                <img class="w-100 img-fluid resize-image"
+                     src="https://images.unsplash.com/photo-1731330269319-0f053cd5d74b?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw1fHx8ZW58MHx8fHx8"
+                     alt="k">
             </div>
         </div>
     </div>

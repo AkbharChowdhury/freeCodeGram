@@ -24,10 +24,12 @@ php artisan migrate:fresh
 
 controllers
 php artisan make:controller ProfilesController
+php artisan make:controller PostsController
 
 
 model
 php artisan make:model Profile -m
+php artisan make:model Post -m
 
 test username:
 Caitlin Chapman
@@ -49,3 +51,5 @@ tinker create user profile
           $profile->user
  $user =  App\Models\User::find(1);
    $user->profile
+Timestamp video:
+1:46:16 
