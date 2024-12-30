@@ -20,24 +20,10 @@ class PostsController extends Controller
 
     function store(StorePostRequest $request): void
     {
-        $img = $request->get("image");
-//        $img = $request->image("image");
 
-        dd($img, $request->all());
-//        $this->savePost($request);
         auth()->user()->posts()->create([
-            'caption' => request->input('caption'),
-            'image' => request->input('image')
+            'caption' => $request->input('caption'),
+            'image' => $request->image
         ]);
-
-    }
-
-    private function savePost(StorePostRequest $request)
-    {
-//        auth()->user()->posts()->create([
-//            'caption' => $request->input('caption'),
-//            'image' => $request->input('image')
-//        ]);
-
     }
 }
