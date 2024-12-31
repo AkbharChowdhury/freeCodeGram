@@ -4,6 +4,8 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
+        @include('includes.breadcrumb', ['homeLink' =>  route('profile.show', auth()->user()->id), 'title' =>'Edit Profile'])
+
         @include('includes/messages')
         <div class="col-8 offset-2">
             <div class="row">
