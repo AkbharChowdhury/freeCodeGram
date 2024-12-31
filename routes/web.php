@@ -19,9 +19,9 @@ Route::get('/home', [ProfilesController::class, 'index'])->name('home');
 //Route::get('/p/{post}', [PostsController::class, 'show'])->name('posts.show');
 //
 
-Route::get('/profile/{user}', [ProfilesController::class, 'index'])->name('profile.show');
-Route::get('/profile/{user}/edit', [ProfilesController::class, 'edit'])->name('profile.edit');
-Route::patch('/profile/{user}', [ProfilesController::class, 'update'])->name('profile.update');
+Route::get('/profile/{user}', [ProfilesController::class, 'index'])->name('profiles.show');
+Route::get('/profile/{user}/edit', [ProfilesController::class, 'edit'])->name('profiles.edit');
+Route::patch('/profile/{user}', [ProfilesController::class, 'update'])->name('profiles.update');
 
 //Route::resource('profile', 'ProfilesController');
 

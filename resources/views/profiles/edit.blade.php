@@ -4,7 +4,7 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-        @include('includes.breadcrumb', ['homeLink' =>  route('profile.show', auth()->user()->id), 'title' =>'Edit Profile'])
+        @include('includes.breadcrumb', ['homeLink' =>  route('profiles.show', auth()->user()->id), 'title' =>'Edit Profile'])
 
         @include('includes/messages')
         <div class="col-8 offset-2">
@@ -12,7 +12,7 @@
                 <h1>Edit Profile</h1>
                 <hr>
             </div>
-            <form autocomplete="off"  class="row g-3" action="{{ route('profile.update', $user->id)  }}" method="post" novalidate enctype="multipart/form-data">
+            <form autocomplete="off"  class="row g-3" action="{{ route('profiles.update', $user->id)  }}" method="post" novalidate enctype="multipart/form-data">
                 @csrf
                 @method('PATCH')
                 <div class="col-md-8">

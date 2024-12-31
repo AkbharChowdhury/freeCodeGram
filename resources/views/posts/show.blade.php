@@ -18,7 +18,7 @@
                         </div>
                         <div>
                             <div class="fw-bold">
-                                <a href="{{  route('profile.show', $post->user->id) }}">{{ $post->user->username }}</a>
+                                <a href="{{  route('profiles.show', $post->user->id) }}">{{ $post->user->username }}</a>
                                 |
                                 <a href="" class="pl-3">follow</a>
                             </div>

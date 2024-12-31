@@ -56,7 +56,7 @@ class ProfilesController extends Controller
 
         auth()->user()->profile()->update(array_merge($data, ['image' => $imagePath]));
 
-        return redirect(route('profile.show', auth()->user()->id))
+        return redirect(route('profiles.show', auth()->user()->id))
             ->withSuccess('Profile Updated');
     }
 

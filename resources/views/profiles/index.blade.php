@@ -18,7 +18,7 @@
                     @endcan
                 </div>
                 @can('update', $user->profile)
-                    <a href="{{ route('profile.edit', $user->id)  }}">Edit Profile</a>
+                    <a href="{{ route('profiles.edit', $user->id)  }}">Edit Profile</a>
                 @endcan
 
 
