@@ -59,8 +59,8 @@ class ProfilesController extends Controller
         $this->isAuthorised($user);
         $data = $this->validateForm();
         $imagePath = request('image') ? $this->getImagePath() : $user->profile->image;
-        $merged = array_merge($data, ['image' => $imagePath]);
-        auth()->user()->profile()->update($merged);
+        
+        auth()->user()->profile()->update(array_merge($data, ['image' => $imagePath]));
 
         return redirect(route('profile.show', auth()->user()->id))
             ->withSuccess('Profile Updated');
