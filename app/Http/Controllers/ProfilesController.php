@@ -55,25 +55,22 @@ class ProfilesController extends Controller
         $this->isAuthorised($user);
         $data = $this->validateForm();
 
-        dd($data);
-
-
-        if (request('image')){
-//            $imagePath = ImageHandler::uploadAndGetImagePath('image', 'profile');
-//            ImageHandler::fitImage(  imgPath:  $imagePath, folder: 'profile', size: 1000);
-
-//            $imagePath = ImageHandler::uploadAndGetImagePath(key: 'image', folder: 'profile');
-//            ImageHandler::fitImage(imagePath: $imagePath, size: 1000);
-
-        }
 
         $imagePath = request('image') ? $this->getImagePath() : '';
 
 
-
+        $merged = array_merge($data, ['image', $imagePath]);
+//        auth()->user()->profile()->update($merged);
+//        dd($merged);
 //
-//        dd($data);
-        auth()->user()->profile()->update(array_merge($data, ['image', $imagePath]));
+        auth()->user()->profile()->update([
+
+            'title' => request('title'),
+            'description' =>  request('description'),
+            'url' => request('url') ?? '',
+            'image' => $imagePath
+
+        ]);
         return redirect(route('profile.show', auth()->user()->id))
             ->withSuccess('Profile Updated');
     }
