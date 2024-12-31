@@ -11,13 +11,15 @@
                 <div>
                     <div class="d-flex align-items-center">
                         <div class="pr-3">
-                            <img src="/storage/{{ $post->user->profile->image }}"
-                                 alt="{{ $post->user->username }}'s profile image" class="w-100 rounded-circle"
-                                 style="max-width: 40px">
+                            <img
+                                src="{{ $post->user->profile->profileImage()  }}"
+                                alt="{{ $post->user->username }}'s profile image" class="w-100 rounded-circle"
+                                style="max-width: 40px">
                         </div>
                         <div>
                             <div class="fw-bold">
-                                <a href="{{  route('profile.show', $post->user->id) }}">{{ $post->user->username }}</a> | 
+                                <a href="{{  route('profile.show', $post->user->id) }}">{{ $post->user->username }}</a>
+                                |
                                 <a href="" class="pl-3">follow</a>
                             </div>
                         </div>
