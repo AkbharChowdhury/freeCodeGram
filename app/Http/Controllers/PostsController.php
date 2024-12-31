@@ -26,12 +26,14 @@ class PostsController extends Controller
     function store(StorePostRequest $request)
     {
 
-        $imgPath = ImageHandler::getImagePath($request);
-        ImageHandler::fitImage($imgPath);
+
+
+        $imagePath = ImageHandler::uploadAndGetImagePath(key: 'image', folder: 'uploads');
+        ImageHandler::fitImage(imagePath: $imagePath);
 
         auth()->user()->posts()->create([
             'caption' => $request->input('caption'),
-            'image' => $imgPath
+            'image' => $imagePath
         ]);
         return redirect(route('profile.show', auth()->user()->id))
             ->withSuccess('Post Added');

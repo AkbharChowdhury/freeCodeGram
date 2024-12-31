@@ -17,7 +17,7 @@ return new class extends Migration {
             $table->string('title')->nullable();
             $table->text('description')->nullable();
             $table->string('url')->nullable();
-
+            $table->string('image')->nullable();
             $table->foreignId('user_id')
                 ->unique()
                 ->constrained()

@@ -64,3 +64,4 @@ Timestamp video:
 2:46:49
 policy
 php artisan make:policy ProfilePolicy -m Profile
+test@test.com
