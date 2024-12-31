@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 //use Intervention\Image\Laravel\Facades\Image;
 
 use App\Http\Requests\StorePostRequest;
+use App\Models\Post;
 use http\Env\Request;
 use Intervention\Image\Facades\Image;
 
@@ -25,7 +26,7 @@ class PostsController extends Controller
     {
         $imgPath = $this->getImagePath($request);
         $this->fitImage($imgPath);
-        
+
         auth()->user()->posts()->create([
             'caption' => $request->input('caption'),
             'image' => $imgPath
@@ -33,6 +34,14 @@ class PostsController extends Controller
         return redirect(route('profile.show', auth()->user()->id));
     }
 
+
+
+
+    function show(Post $post)
+    {
+
+
+    }
 
     private function fitImage(string $imgPath)
     {
