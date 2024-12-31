@@ -1,60 +1,31 @@
 <?php
 
+use App\Http\Controllers\FollowsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfilesController;
 use App\Http\Controllers\PostsController;
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
+Route::view('/', 'welcome');
 Auth::routes();
+
+//Route::post('follow/{user}', function () {
+//    return ['success'];
+//});
+Route::post('follow/{user}', [FollowsController::class, 'store'])->name('follows.store');
 
 Route::get('/home', [ProfilesController::class, 'index'])->name('home');
 
-//Route::get('/p/create', [PostsController::class, 'create'])->name('posts.create');
 //Route::post('/p', [PostsController::class, 'store'])->name('posts.store');
-//Route::get('/p/{post}', [PostsController::class, 'show'])->name('posts.show');
-//
 
 Route::get('/profile/{user}', [ProfilesController::class, 'index'])->name('profiles.show');
 Route::get('/profile/{user}/edit', [ProfilesController::class, 'edit'])->name('profiles.edit');
 Route::patch('/profile/{user}', [ProfilesController::class, 'update'])->name('profiles.update');
 
-//Route::resource('profile', 'ProfilesController');
-
-//Route::patch('/profile/{user}', [ProfilesController::class, 'update'])->name('profile.update');
-
-//Route::resource('profile', ProfilesController::class)->only([
-//    'index', 'edit',
-//]);
-
-
-
-
-//Route::controller(ProfilesController::class)->group(function () {
-//    Route::get('/p/create', 'create')->name('posts.create');
-//    Route::get('/profile/{user}', 'index')->name('profile.index');
-//});
-
-//
-//Route::controller(PostsController::class)->group(function () {
-//    Route::get('/p/create', 'create')->name('posts.create');
-//    Route::get('/p/{post}', 'show')->name('posts.show');
-//    Route::post('/p', 'store')->name('posts.store');
-//});
-
-
 Route::resource('posts', PostsController::class)->only([
     'create', 'store', 'show'
 ]);
 
-//Auth::routes();
-//
-//Route::get('/home', [HomeController::class, 'index'])->name('home');
-//
-//Auth::routes();
 
-//Route::get('/home', [HomeController::class, 'index'])->name('home');

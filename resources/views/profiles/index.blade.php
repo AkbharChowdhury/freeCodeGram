@@ -11,7 +11,11 @@
 
             <div class="col-9 pt-5">
                 <div class="d-flex justify-content-between align-items-baseline">
-                    <h1>{{ $user->username }}</h1>
+                    <div class="d-flex align-items-center pb-3">
+                        <h4>{{ $user->username }} </h4>
+                        <follow-button user-id="{{ $user->id }}"></follow-button>
+{{--                        <button class="btn btn-primary ml-4 text-capitalize">follow</button>--}}
+                    </div>
                     @can('update', $user->profile)
                         <a href="{{ route('posts.create') }}" role="button"
                            class="btn btn-outline-success text-capitalize">add new post</a>

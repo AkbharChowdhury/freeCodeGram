@@ -25,6 +25,7 @@ php artisan migrate:fresh
 controllers
 php artisan make:controller ProfilesController
 php artisan make:controller PostsController
+php artisan make:controller FollowsController
 
 
 model
