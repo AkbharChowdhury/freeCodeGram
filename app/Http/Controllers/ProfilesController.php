@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreProfileRequest;
 use App\Models\User;
 
 class ProfilesController extends Controller
@@ -23,6 +24,16 @@ class ProfilesController extends Controller
 
 
     }
+
+    public function update(StoreProfileRequest $request)
+    {
+        dd($request->all());
+
+    }
+
+//php artisan make:request StoreProfileRequest
+
+
 
 
 }

@@ -21,7 +21,7 @@ Route::get('/home', [ProfilesController::class, 'index'])->name('home');
 
 Route::get('/profile/{user}', [ProfilesController::class, 'index'])->name('profile.show');
 Route::get('/profile/{user}/edit', [ProfilesController::class, 'edit'])->name('profile.edit');
-Route::patch('/profile/{user}', [ProfilesController::class, 'store'])->name('profile.update');
+Route::patch('/profile/{user}', [ProfilesController::class, 'update'])->name('profile.update');
 
 //Route::controller(ProfilesController::class)->group(function () {
 //    Route::get('/p/create', 'create')->name('posts.create');
