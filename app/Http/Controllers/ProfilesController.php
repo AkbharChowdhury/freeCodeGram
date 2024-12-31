@@ -25,6 +25,7 @@ class ProfilesController extends Controller
 
 
     }
+
     private function isAuthorised(User $user): void
     {
         $this->authorize('update', $user->profile);
@@ -42,6 +43,7 @@ class ProfilesController extends Controller
         ]);
 
     }
+
     private function getImagePath()
     {
         $imagePath = ImageHandler::uploadAndGetImagePath(key: 'image', folder: 'profile');
@@ -49,28 +51,17 @@ class ProfilesController extends Controller
         return $imagePath;
 
     }
+
     public function update(User $user)
     {
 
+
         $this->isAuthorised($user);
         $data = $this->validateForm();
+        $imagePath = request('image') ? $this->getImagePath() : $user->profile->image;
+        $merged = array_merge($data, ['image' => $imagePath]);
+        auth()->user()->profile()->update($merged);
 
-
-        $imagePath = request('image') ? $this->getImagePath() : '';
-
-
-        $merged = array_merge($data, ['image', $imagePath]);
-//        auth()->user()->profile()->update($merged);
-//        dd($merged);
-//
-        auth()->user()->profile()->update([
-
-            'title' => request('title'),
-            'description' =>  request('description'),
-            'url' => request('url') ?? '',
-            'image' => $imagePath
-
-        ]);
         return redirect(route('profile.show', auth()->user()->id))
             ->withSuccess('Profile Updated');
     }
