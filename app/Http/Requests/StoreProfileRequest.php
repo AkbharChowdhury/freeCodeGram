@@ -25,6 +25,7 @@ class StoreProfileRequest extends FormRequest
         return [
             'title' => 'required',
             'description' => 'required',
+//            'url'=>'url'
 //            'image' => ['required', 'image', 'mimes:jpeg,png,jpg'],
         ];
     }

@@ -36,9 +36,7 @@
                 </div>
                 <div>
                     @if($user->profile->url)
-                        <button type="button" class="btn btn-sm btn-secondary  badge text-bg-secondary ">@
-                            freecodecamp
-                        </button>
+                        <a href ="{{ $user->profile->url }}" role="button" class= "btn btn-sm btn-secondary badge text-bg-secondary ">@ {{$user->username  }}</a>
                     @endif
                 </div>
             </div>

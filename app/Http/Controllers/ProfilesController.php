@@ -2,19 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreProfileRequest;
+//use App\Http\Requests\StoreProfileRequest;
 use App\Models\User;
 
 class ProfilesController extends Controller
 {
-    public function index( User $user)
+    public function index(User $user)
     {
-//        $user = User::findOrFail($user);
         $postCount = $user->posts()->count();
         return view('profiles.index', [
             'user' => $user,
             'postCount' => $postCount,
-            'plural' => $postCount <=1 ? '' : 's'
+            'plural' => $postCount <= 1 ? '' : 's'
         ]);
     }
 
@@ -25,15 +24,25 @@ class ProfilesController extends Controller
 
     }
 
-    public function update(StoreProfileRequest $request)
+
+    private function validateForm(): array
     {
-        dd($request->all());
+        return request()->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'url' => '',
+            'image' => ''
+
+        ]);
 
     }
 
-//php artisan make:request StoreProfileRequest
-
-
-
+    public function update(User $user)
+    {
+        $data = $this->validateForm();
+        $user->profile()->update($data);
+        return redirect(route('profile.show', auth()->user()->id))
+            ->withSuccess('Profile Updated');
+    }
 
 }
