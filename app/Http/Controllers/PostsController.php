@@ -7,7 +7,6 @@ use App\Models\ImageHandler;
 use App\Models\Post;
 
 
-
 class PostsController extends Controller
 {
 
@@ -27,9 +26,8 @@ class PostsController extends Controller
     {
 
 
-
-        $imagePath = ImageHandler::uploadAndGetImagePath(key: 'image', folder: 'uploads');
-        ImageHandler::fitImage(imagePath: $imagePath);
+        $imagePath = ImageHandler::save(folder: 'uploads');
+        ImageHandler::resize(imagePath: $imagePath);
 
         auth()->user()->posts()->create([
             'caption' => $request->input('caption'),

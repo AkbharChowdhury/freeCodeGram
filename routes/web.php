@@ -23,6 +23,17 @@ Route::get('/profile/{user}', [ProfilesController::class, 'index'])->name('profi
 Route::get('/profile/{user}/edit', [ProfilesController::class, 'edit'])->name('profile.edit');
 Route::patch('/profile/{user}', [ProfilesController::class, 'update'])->name('profile.update');
 
+//Route::resource('profile', 'ProfilesController');
+
+//Route::patch('/profile/{user}', [ProfilesController::class, 'update'])->name('profile.update');
+
+//Route::resource('profile', ProfilesController::class)->only([
+//    'index', 'edit',
+//]);
+
+
+
+
 //Route::controller(ProfilesController::class)->group(function () {
 //    Route::get('/p/create', 'create')->name('posts.create');
 //    Route::get('/profile/{user}', 'index')->name('profile.index');

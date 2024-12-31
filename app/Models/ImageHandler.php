@@ -2,26 +2,20 @@
 
 namespace App\Models;
 
-use App\Http\Requests\StorePostRequest;
-use Illuminate\Support\Facades\Request;
 use Intervention\Image\Facades\Image;
 
 class ImageHandler
 {
-    public static function fitImage(string $imagePath, $size = 1200)
+    public static function resize(string $imagePath, $size = 1200): void
     {
         Image::make(public_path('storage/' . $imagePath))
             ->fit($size, $size)
             ->save();
     }
 
-//    public static function getImagePath(StorePostRequest $request)
-//    {
-//        return $request->image->store('uploads', 'public');
-//    }
 
 
-    public static function uploadAndGetImagePath(string $key, string $folder)
+    public static function save(string $folder, string $key='image')
     {
         return request($key)->store($folder . '/', 'public');
     }

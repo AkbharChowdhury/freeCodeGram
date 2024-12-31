@@ -1,8 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
-//use App\Http\Requests\StoreProfileRequest;
 use App\Models\ImageHandler;
 use App\Models\User;
 
@@ -39,27 +37,23 @@ class ProfilesController extends Controller
             'description' => 'required',
             'url' => '',
             'image' => ''
-
         ]);
-
     }
 
-    private function getImagePath()
+    private function saveAndGetImagePath()
     {
-        $imagePath = ImageHandler::uploadAndGetImagePath(key: 'image', folder: 'profile');
-        ImageHandler::fitImage(imagePath: $imagePath, size: 1000);
+        $imagePath = ImageHandler::save(key: 'image', folder: 'profile');
+        ImageHandler::resize(imagePath: $imagePath, size: 1000);
         return $imagePath;
 
     }
 
     public function update(User $user)
     {
-
-
         $this->isAuthorised($user);
         $data = $this->validateForm();
-        $imagePath = request('image') ? $this->getImagePath() : $user->profile->image;
-        
+        $imagePath = request('image') ? $this->saveAndGetImagePath() : $user->profile->image;
+
         auth()->user()->profile()->update(array_merge($data, ['image' => $imagePath]));
 
         return redirect(route('profile.show', auth()->user()->id))
