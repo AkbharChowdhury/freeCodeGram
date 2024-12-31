@@ -41,6 +41,8 @@ oPho1thee
 tinker
 php artisan tinker
 tinker create user profile
+ use App\Models\Post;
+
  use App\Models\Profile;
         $profile = new Profile();
         $profile->title = 'Versions of the Lorem ipsum text have been used in typesetting at least since the 1960s, when ';
@@ -52,4 +54,4 @@ tinker create user profile
  $user =  App\Models\User::find(1);
    $user->profile
 Timestamp video:
-1:46:16 
+1:46:16

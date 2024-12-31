@@ -18,12 +18,13 @@ class PostsController extends Controller
 
     }
 
-    function store(StorePostRequest $request): void
+    function store(StorePostRequest $request)
     {
 
         auth()->user()->posts()->create([
             'caption' => $request->input('caption'),
-            'image' => $request->image
+            'image' => $request->image->store('uploads','public')
         ]);
+        return redirect(route('profile.show', auth()->user()->id));
     }
 }

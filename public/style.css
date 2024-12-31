@@ -1,0 +1,9 @@
+#logo {
+    height: 30px;
+    border-right: 1px solid #cccc;
+}
+.resize-image {
+    height: 300px;
+    width: 100px;
+    object-fit: cover;
+}
