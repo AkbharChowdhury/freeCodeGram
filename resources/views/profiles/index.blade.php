@@ -8,13 +8,11 @@
                 <img src="{{ $user->profile->profileImage() }}" alt="User's profile image" class="rounded-circle w-100">
             </div>
 
-
             <div class="col-9 pt-5">
                 <div class="d-flex justify-content-between align-items-baseline">
                     <div class="d-flex align-items-center pb-3">
                         <h4>{{ $user->username }} </h4>
-                        <follow-button user-id="{{ $user->id }}"></follow-button>
-{{--                        <button class="btn btn-primary ml-4 text-capitalize">follow</button>--}}
+                        <follow-button user-id="{{ $user->id }}" follows="{{ $follows }}" followersCount="{{$followersCount}}"></follow-button>
                     </div>
                     @can('update', $user->profile)
                         <a href="{{ route('posts.create') }}" role="button"
@@ -28,8 +26,8 @@
 
                 <div class="d-flex">
                     <p class="m-2"><strong>{{ $postCount }}</strong> post{{ $plural }}</p>
-                    <p class="m-2"><strong>170k</strong> followers</p>
-                    <p class="m-2"><strong>424</strong> following</p>
+                    <p class="m-2"><strong><span id="followersCountSpan">{{ $followersCount  }}</span></strong> followers</p>
+                    <p class="m-2"><strong>{{ $followingCount  }}</strong> following</p>
 
                     {{--                                                            <p><strong>686</strong> posts | <strong>170k</strong> followers | <strong>423</strong> following</p>--}}
                 </div>
@@ -61,4 +59,16 @@
             @endforeach
 
         </div>
+        @endsection
+        @section('scripts')
+            <script>
+                const followButton = document.getElementById('button');
+                console.log({followButton});
+                // document.getElementById('btnFollow').addEventListener('click',(e)=>{
+                //     alert("clicked")
+                //     // let followersCount = document.getElementById('followersCount')
+                //     // console.log(followersCount.textContent + "....")
+                //
+                // });
+            </script>
 @endsection

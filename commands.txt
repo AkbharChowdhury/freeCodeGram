@@ -51,7 +51,8 @@ tinker create user profile
  composer require intervention/image
 
 
- use App\Models\Profile;
+ use App\Models\User;
+  $user = App\Models\User::find(1)->following
         $profile = new Profile();
         $profile->title = 'Versions of the Lorem ipsum text have been used in typesetting at least since the 1960s, when ';
         $profile->description = 'Lorem ipsum is typically a corrupted version of De finibus bonorum et malorum, a 1st-century BC text by the Roman statesman and philosopher Cicero, with words altered, added, and removed to make it nonsensical and improper Latin. The first two words themselves are a truncation of dolorem ipsum ("pain itself").';
@@ -66,3 +67,7 @@ Timestamp video:
 policy
 php artisan make:policy ProfilePolicy -m Profile
 test@test.com
+
+
+php artisan make:migration creates_profile_user_pivot_table --create profile_user
+barry@gmail.com

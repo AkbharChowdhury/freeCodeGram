@@ -24,4 +24,10 @@ class Profile extends Model
     {
         return $this->image ? '/storage/' . $this->image : $this->getDefaultProfileImage();
     }
+
+    public function followers()
+    {
+        return $this->belongsToMany(User::class);
+
+    }
 }

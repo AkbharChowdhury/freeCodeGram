@@ -1,19 +1,23 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\ImageHandler;
+use App\Models\MyHelper;
 use App\Models\User;
 
 class ProfilesController extends Controller
 {
     public function index(User $user)
     {
+        $follows = auth()->user() ? auth()->user()->following->contains($user->id) : false;
+        $followersCount = $user->profile->followers->count();
+        $followingCount = $user->following->count();
         $postCount = $user->posts()->count();
-        return view('profiles.index', [
-            'user' => $user,
-            'postCount' => $postCount,
-            'plural' => $postCount <= 1 ? '' : 's'
-        ]);
+        $plural = MyHelper::plural($postCount);
+
+        return view('profiles.index', compact('user', 'postCount', 'plural', 'follows', 'followersCount', 'followingCount'));
+
     }
 
     public function edit(User $user)
