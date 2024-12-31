@@ -57,5 +57,4 @@ tinker create user profile
  $user =  App\Models\User::find(1);
    $user->profile
 Timestamp video:
-2:32:44
-
+2:46:49

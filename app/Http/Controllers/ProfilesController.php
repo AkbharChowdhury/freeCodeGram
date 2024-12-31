@@ -40,7 +40,7 @@ class ProfilesController extends Controller
     public function update(User $user)
     {
         $data = $this->validateForm();
-        $user->profile()->update($data);
+        auth()->user()->profile()->update($data);
         return redirect(route('profile.show', auth()->user()->id))
             ->withSuccess('Profile Updated');
     }
