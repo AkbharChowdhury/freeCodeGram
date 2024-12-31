@@ -18,7 +18,7 @@
                 </div>
 
                 <div class="d-flex">
-                    <p class="m-2"><strong>{{ $postCount }}</strong> posts</p>
+                    <p class="m-2"><strong>{{ $postCount }}</strong> post{{ $plural }}</p>
                     <p class="m-2"><strong>170k</strong> followers</p>
                     <p class="m-2"><strong>424</strong> following</p>
 
@@ -45,7 +45,7 @@
         </div>
         <div class="row pt-5">
             @foreach($user->posts as $post)
-                <div class="col-4">
+                <div class="col-4 pb-4">
                     <img src="/storage/{{ $post->image  }}" alt="Image" class="w-100 resize-image" alt="{{ $post->caption  }}">
                 </div>
             @endforeach
