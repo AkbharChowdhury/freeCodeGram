@@ -13,7 +13,15 @@
     <link rel="dns-prefetch" href="//fonts.bunny.net">
 {{--    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">--}}
     <link rel="stylesheet" href="/style.css">
+    <style>
+        .i{
+            width: 274px;
+            height: 274px;
 
+            aspect-ratio: 274/ 274;
+            object-fit: contain;
+        }
+    </style>
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>

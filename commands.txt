@@ -42,6 +42,9 @@ tinker
 php artisan tinker
 tinker create user profile
  use App\Models\Post;
+ image
+ composer require intervention/image
+
 
  use App\Models\Profile;
         $profile = new Profile();
