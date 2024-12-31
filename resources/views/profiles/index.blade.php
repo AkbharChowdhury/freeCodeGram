@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="container">
+        @include('includes.messages')
         <div class="row">
             <div class="col-3 p-5">
                 <img
@@ -13,9 +14,10 @@
             <div class="col-9 pt-5">
                 <div class="d-flex justify-content-between align-items-baseline">
                     <h1>{{ $user->username }}</h1>
-                    <a href="{{ route('posts.create') }}" role="button" class="btn btn-outline-success text-capitalize">add
-                        new post</a>
+                    <a href="{{ route('posts.create') }}" role="button" class="btn btn-outline-success text-capitalize">add new post</a>
                 </div>
+                <a href="{{ route('profile.edit', $user->id)  }}">Edit Profile</a>
+
 
                 <div class="d-flex">
                     <p class="m-2"><strong>{{ $postCount }}</strong> post{{ $plural }}</p>

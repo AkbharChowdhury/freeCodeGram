@@ -31,7 +31,11 @@ class PostsController extends Controller
             'caption' => $request->input('caption'),
             'image' => $imgPath
         ]);
-        return redirect(route('profile.show', auth()->user()->id));
+        return redirect(route('profile.show', auth()->user()->id))
+            ->withSuccess('Post Added')
+//            ->with('success', 'Post Added.')
+            ;
+
     }
 
 
