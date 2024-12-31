@@ -19,9 +19,14 @@ class ProfilesController extends Controller
 
     public function edit(User $user)
     {
+        $this->isAuthorised($user);
         return view('profiles.edit', compact('user'));
 
 
+    }
+    private function isAuthorised(User $user): void
+    {
+        $this->authorize('update', $user->profile);
     }
 
 
@@ -39,6 +44,8 @@ class ProfilesController extends Controller
 
     public function update(User $user)
     {
+        $this->isAuthorised($user);
+
         $data = $this->validateForm();
         auth()->user()->profile()->update($data);
         return redirect(route('profile.show', auth()->user()->id))

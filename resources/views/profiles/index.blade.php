@@ -14,9 +14,14 @@
             <div class="col-9 pt-5">
                 <div class="d-flex justify-content-between align-items-baseline">
                     <h1>{{ $user->username }}</h1>
-                    <a href="{{ route('posts.create') }}" role="button" class="btn btn-outline-success text-capitalize">add new post</a>
+                    @can('update', $user->profile)
+                        <a href="{{ route('posts.create') }}" role="button"
+                           class="btn btn-outline-success text-capitalize">add new post</a>
+                    @endcan
                 </div>
-                <a href="{{ route('profile.edit', $user->id)  }}">Edit Profile</a>
+                @can('update', $user->profile)
+                    <a href="{{ route('profile.edit', $user->id)  }}">Edit Profile</a>
+                @endcan
 
 
                 <div class="d-flex">
@@ -34,9 +39,10 @@
                     {{ $user->profile->description }}
 
                 </div>
-                <div>
+                <div class="mt-3">
                     @if($user->profile->url)
-                        <a href ="{{ $user->profile->url }}" role="button" class= "btn btn-sm btn-secondary badge text-bg-secondary ">@ {{$user->username  }}</a>
+                        <a href="{{ $user->profile->url }}" role="button"
+                           class="btn btn-sm btn-secondary badge text-bg-secondary ">@ {{$user->username  }}</a>
                     @endif
                 </div>
             </div>
