@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\ImageHandler;
 use App\Models\MyHelper;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class ProfilesController extends Controller
 {
     public function index(User $user)
     {
-        $follows = auth()->user() ? auth()->user()->following->contains($user->id) : false;
+        $follows = Auth::user() ? Auth::user()->following->contains($user->id) : false;
         $followersCount = $user->profile->followers->count();
         $followingCount = $user->following->count();
         $postCount = $user->posts()->count();
@@ -58,9 +59,9 @@ class ProfilesController extends Controller
         $data = $this->validateForm();
         $imagePath = request('image') ? $this->saveAndGetImagePath() : $user->profile->image;
 
-        auth()->user()->profile()->update(array_merge($data, ['image' => $imagePath]));
+        Auth::user()->profile()->update(array_merge($data, ['image' => $imagePath]));
 
-        return redirect(route('profiles.show', auth()->user()->id))
+        return redirect(route('profiles.show', Auth::id()))
             ->withSuccess('Profile Updated');
     }
 

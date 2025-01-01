@@ -15,8 +15,7 @@ class FollowsController extends Controller
     public function index(User $user)
     {
 
-        return   $user->profile->followers->count();
-
+        return $user->profile->followers->count();
 
     }
 

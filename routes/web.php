@@ -19,10 +19,10 @@ Route::get('/profile/{user}/edit', [ProfilesController::class, 'edit'])->name('p
 Route::patch('/profile/{user}', [ProfilesController::class, 'update'])->name('profiles.update');
 
 Route::resource('posts', PostsController::class)->only([
-    'create', 'store', 'show'
+    'create', 'store', 'show', 'index'
 ]);
 
-Route::get('/home', [ProfilesController::class, 'index'])->name('home');
+Route::get('/home', [PostsController::class, 'index'])->name('home');
 
 
 
