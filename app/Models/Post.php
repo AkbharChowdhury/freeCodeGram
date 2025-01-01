@@ -13,9 +13,15 @@ class Post extends Model
         'caption',
         'image'
     ];
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
 
+    }
+
+    public function getIMG(): string
+    {
+        return '/storage/' . $this->image;
     }
 }

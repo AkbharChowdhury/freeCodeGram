@@ -13,6 +13,12 @@ class ImageHandler
             ->save();
     }
 
+    public static function getImagePath(string $image) : string
+    {
+        return '/storage/'.$image;
+
+    }
+
 
 
     public static function save(string $folder, string $key='image')
