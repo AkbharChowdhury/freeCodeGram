@@ -20,34 +20,14 @@ class PostsController extends Controller
 
     public function index()
     {
-        $users = auth()->user()->following()->pluck('profiles.user_id');
+        $users = Auth::user()->following()->pluck('profiles.user_id');
 
         $posts = Post::whereIn('user_id', $users)->with('user')
             ->latest()
-            ->paginate(2);
+            ->paginate(3);
 
         return view('posts.index', compact('posts'));
     }
-
-//    public function index()
-//    {
-////        Auth::id()
-//        $users = auth()->user()->following()->pluck('profiles.user_id');
-//        $posts =
-//            Post::where('user_id', 1)->paginate(2);
-//
-////            Post::all()->pag
-////                ->latest()
-////            Post::whereIn('user_id', $users)
-////            ->latest()
-////            ->get();
-//        ;
-////        dd($posts);
-//
-//
-//        return view('posts.index', compact('posts'));
-//
-//    }
 
 
     public function create()
@@ -58,7 +38,6 @@ class PostsController extends Controller
 
     function store(StorePostRequest $request)
     {
-
 
         $imagePath = ImageHandler::save(folder: 'uploads');
         ImageHandler::resize(imagePath: $imagePath);
