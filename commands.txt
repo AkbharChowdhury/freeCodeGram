@@ -71,3 +71,6 @@ test@test.com
 
 php artisan make:migration creates_profile_user_pivot_table --create profile_user
 barry@gmail.com
+
+
+php artisan make:mail NewUserWelcomeMail -m emails.welcome-email
